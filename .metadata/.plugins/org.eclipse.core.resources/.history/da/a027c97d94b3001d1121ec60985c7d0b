@@ -1,0 +1,11 @@
+package com.masaischool.DAO;
+
+import com.masaischool.DTO.Engineer;
+import com.masaischool.Exception.NoEngineerFoundException;
+import com.masaischool.Exception.SomeThingWentWrongException;
+
+public interface EngineerOperation {
+
+	public void RegisternewEngineer(Engineer ex)throws SomeThingWentWrongException;
+	
+}

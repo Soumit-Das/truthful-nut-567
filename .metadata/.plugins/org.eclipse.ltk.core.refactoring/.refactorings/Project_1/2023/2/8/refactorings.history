@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.masaischool.DAO.ConnectToDatabase.java&apos; to &apos;DButils.java&apos;&#x0D;&#x0A;- Original project: &apos;Project_1&apos;&#x0D;&#x0A;- Original element: &apos;com.masaischool.DAO.ConnectToDatabase.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.masaischool.DAO.DButils.java&apos;" description="Rename compilation unit &apos;ConnectToDatabase.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.masaischool.DAO{ConnectToDatabase.java" name="DButils.java" references="false" stamp="1677139346037" version="1.0"/>
+</session>

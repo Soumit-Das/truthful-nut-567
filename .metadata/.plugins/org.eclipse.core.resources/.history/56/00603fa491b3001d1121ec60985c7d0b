@@ -1,0 +1,5 @@
+package com.masaischool.DTO;
+
+public class EngineerImpl implements Engineer {
+
+}

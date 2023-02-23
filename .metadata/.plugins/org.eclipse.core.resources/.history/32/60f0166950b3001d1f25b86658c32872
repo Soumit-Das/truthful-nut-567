@@ -1,0 +1,19 @@
+package com.masaischool.DAO;
+
+public class ConnectToDatabase {
+
+	
+	
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}catch(ClassNotFoundException cnf) {
+			System.out.println("Class Not Found");
+		}
+	}
+	
+	
+	static Connection ConnectToDatabase
+	
+	
+}
