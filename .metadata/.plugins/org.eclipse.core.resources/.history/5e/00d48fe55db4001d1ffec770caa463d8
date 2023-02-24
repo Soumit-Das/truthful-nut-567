@@ -29,7 +29,7 @@ public class HOD_OperationImpl implements HOD_Operation {
 			
             final String insert_query = "INSERT INTO engineer (username,password,category)VALUES(?,?,?)";
 			
-            PreparedStatement ps = connection.prepareStatement(insert_query);
+            PreparedStatement ps = connection.prepareCall(insert_query);
             
             ps.setString(1, ex.getUsername());
             ps.setString(2, ex.getPassword());
@@ -74,7 +74,7 @@ public class HOD_OperationImpl implements HOD_Operation {
 	
 	private List<Problems> getProblemsResultSet(ResultSet rs)throws SQLException{
 		
-		List<Problems> listP = new ArrayList<>();
+		List<Problems> list = new ArrayList<>();
 		
 		while(rs.next()) {
 			
@@ -84,10 +84,10 @@ public class HOD_OperationImpl implements HOD_Operation {
 			pg.setProblem_id(rs.getInt("Problem_id"));
 			pg.setProblem(rs.getString("Problem"));
 			pg.setStatus(rs.getString("Status"));
-			listP.add(pg);
+			list.add(pg);
 			
 		}	
-		return listP;
+		return list;
 	}
 	
 	@Override
@@ -164,7 +164,7 @@ public class HOD_OperationImpl implements HOD_Operation {
 		// get data from problems table
 		
 		Connection connection = null;
-		List<Problems> listP = null;
+		List<Problems> list = null;
 		
 		try {
 			
@@ -172,7 +172,7 @@ public class HOD_OperationImpl implements HOD_Operation {
 			
 			final String AllProblem_query = "SELECT Problem FROM Problems";
 			
-			PreparedStatement ps = connection.prepareStatement(AllProblem_query);
+			PreparedStatement ps = connection.prepareCall(AllProblem_query);
 			
 			ResultSet resultset = ps.executeQuery();
 			
@@ -180,7 +180,7 @@ public class HOD_OperationImpl implements HOD_Operation {
 				throw new NoProblemsFoundException("");
 			}
 			
-			listP = getProblemsResultSet(resultset);
+			list = getResultSet(resultset);
 			
 			
 		}catch(SQLException sx) {
@@ -196,12 +196,12 @@ public class HOD_OperationImpl implements HOD_Operation {
 			}
 		}
 		
-		return listP;
+		return null;
 	}
 
 	@Override
 	public void assignProblemToEngineer(Problems px) throws NoProblemsFoundException, SomeThingWentWrongException {
-		// Not completed
+		// TODO Auto-generated method stub
 
 	}
 

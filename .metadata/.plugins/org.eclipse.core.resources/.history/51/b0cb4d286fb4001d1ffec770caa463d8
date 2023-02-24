@@ -29,7 +29,7 @@ public class HOD_OperationImpl implements HOD_Operation {
 			
             final String insert_query = "INSERT INTO engineer (username,password,category)VALUES(?,?,?)";
 			
-            PreparedStatement ps = connection.prepareStatement(insert_query);
+            PreparedStatement ps = connection.prepareCall(insert_query);
             
             ps.setString(1, ex.getUsername());
             ps.setString(2, ex.getPassword());
@@ -172,7 +172,7 @@ public class HOD_OperationImpl implements HOD_Operation {
 			
 			final String AllProblem_query = "SELECT Problem FROM Problems";
 			
-			PreparedStatement ps = connection.prepareStatement(AllProblem_query);
+			PreparedStatement ps = connection.prepareCall(AllProblem_query);
 			
 			ResultSet resultset = ps.executeQuery();
 			

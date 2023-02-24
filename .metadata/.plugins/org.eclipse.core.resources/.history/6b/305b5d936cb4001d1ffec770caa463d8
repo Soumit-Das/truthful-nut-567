@@ -8,9 +8,8 @@ import com.masaischool.Exception.SomeThingWentWrongException;
 
 public interface Engineer_Operation {
 
-	public List<Problems> viewAssignedProblem(String Engineer)throws NoProblemsFoundException;
+	public void viewAssignedProblem(Problems px)throws NoProblemsFoundException;
 	public void UpdateStatus(Problems px)throws SomeThingWentWrongException;
 	public List<Problems> viewAllAttendedProblems()throws NoProblemsFoundException;
-	
 	
 }

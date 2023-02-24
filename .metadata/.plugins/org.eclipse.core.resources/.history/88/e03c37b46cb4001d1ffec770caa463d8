@@ -1,0 +1,29 @@
+package com.masaischool.DAO;
+
+import java.util.List;
+
+import com.masaischool.DTO.Problems;
+import com.masaischool.Exception.NoProblemsFoundException;
+import com.masaischool.Exception.SomeThingWentWrongException;
+
+public class Engineer_OperationImpl implements Engineer_Operation {
+
+	@Override
+	public void viewAssignedProblem(Problems px) throws NoProblemsFoundException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void UpdateStatus(Problems px) throws SomeThingWentWrongException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Problems> viewAllAttendedProblems() throws NoProblemsFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

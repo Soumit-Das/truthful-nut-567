@@ -1,0 +1,58 @@
+package com.masaischool.DAO;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.masaischool.DTO.Engineer;
+import com.masaischool.DTO.Problems;
+import com.masaischool.Exception.NoEngineerFoundException;
+import com.masaischool.Exception.NoProblemsFoundException;
+import com.masaischool.Exception.SomeThingWentWrongException;
+
+public class HOD_OperationImpl implements HOD_Operation {
+
+	@Override
+	public void RegisternewEngineer(Engineer ex) throws SomeThingWentWrongException {
+		// Register with INSERT QUERY
+       
+		Connection connection = null;
+		
+		try {
+			
+			connection = DButils.ConnectToDatabase();
+			
+            final String insert_query = "INSERT INTO ";
+			
+		}catch(SQLException ep) {
+			throw new SomeThingWentWrongException();
+		}
+		
+		
+	}
+
+	@Override
+	public List<Engineer> getallEngineer() throws NoEngineerFoundException, SomeThingWentWrongException {
+		// Get all with SELECT QUERY
+		return null;
+	}
+
+	@Override
+	public void DeleteEmployee(String username) throws SomeThingWentWrongException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Problems> getallProblems() throws NoProblemsFoundException, SomeThingWentWrongException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void assignProblemToEngineer(Problems px) throws NoProblemsFoundException, SomeThingWentWrongException {
+		// TODO Auto-generated method stub
+
+	}
+
+}
