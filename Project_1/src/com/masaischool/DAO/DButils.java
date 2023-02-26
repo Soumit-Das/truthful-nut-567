@@ -37,5 +37,7 @@ public class DButils {
 			connection.close();
 		}
 	}
-	
+	public static void main(String[] args) {
+		
+	}
 }

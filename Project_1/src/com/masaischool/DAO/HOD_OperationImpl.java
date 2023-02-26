@@ -33,9 +33,10 @@ public class HOD_OperationImpl implements HOD_Operation {
             
             ps.setString(1, ex.getUsername());
             ps.setString(2, ex.getPassword());
-            ps.setString(2, ex.getCategory());
+            ps.setString(3, ex.getCategory());
             
-            ps.executeUpdate();
+            System.out.println(ps.executeUpdate() > 0?"Engineer added successfully":"Engineer not added");
+            
             
             
 		}catch(SQLException ep) {
@@ -63,8 +64,8 @@ public class HOD_OperationImpl implements HOD_Operation {
 			
 			Engineer eg = new EngineerImpl();
 			eg.setUsername(rs.getString("username"));
-			eg.setUsername(rs.getString("password"));
-			eg.setUsername(rs.getString("category"));
+			eg.setPassword(rs.getString("password"));
+			eg.setCategory(rs.getString("category"));
 			list.add(eg);
 			
 		}	
@@ -72,18 +73,18 @@ public class HOD_OperationImpl implements HOD_Operation {
 	}
 	
 	
-	private List<Problems> getProblemsResultSet(ResultSet rs)throws SQLException{
+	private List<Problems> getProblemsResultSet(ResultSet ps)throws SQLException{
 		
 		List<Problems> listP = new ArrayList<>();
 		
-		while(rs.next()) {
+		while(ps.next()) {
 			
 			Problems pg = new ProblemsImpl();
-			pg.setEmployee_id(rs.getInt("Employee_id"));
-			pg.setEngineer_name(rs.getString("Engineer"));
-			pg.setProblem_id(rs.getInt("Problem_id"));
-			pg.setProblem(rs.getString("Problem"));
-			pg.setStatus(rs.getString("Status"));
+			pg.setEmployee_id(ps.getInt("Employee_id"));
+			pg.setEngineer_name(ps.getString("Engineer"));
+			pg.setProblem_id(ps.getInt("Problem_id"));
+			pg.setProblem(ps.getString("Problem"));
+			pg.setStatus(ps.getString("Status"));
 			listP.add(pg);
 			
 		}	
@@ -108,10 +109,12 @@ public class HOD_OperationImpl implements HOD_Operation {
 			ResultSet resultset = ps.executeQuery();
 			
 			if(isResultsetEmpty(resultset)) {
-				throw new NoEngineerFoundException("");
+				throw new NoEngineerFoundException("No Engineer Found");
+			}else {
+				
+				list = getResultSet(resultset);
 			}
 			
-			list = getResultSet(resultset);
 			
 			
 		}catch(SQLException es) {
@@ -129,7 +132,7 @@ public class HOD_OperationImpl implements HOD_Operation {
 	}
 
 	@Override
-	public void DeleteEmployee(String username) throws SomeThingWentWrongException {
+	public void DeleteEngineer(String username) throws SomeThingWentWrongException {
 		// Use DELETE query
 		
 		Connection connection = null;
@@ -178,9 +181,11 @@ public class HOD_OperationImpl implements HOD_Operation {
 			
 			if(isResultsetEmpty(resultset)) {
 				throw new NoProblemsFoundException("");
+			}else{
+				listP = getProblemsResultSet(resultset);
+				
 			}
 			
-			listP = getProblemsResultSet(resultset);
 			
 			
 		}catch(SQLException sx) {

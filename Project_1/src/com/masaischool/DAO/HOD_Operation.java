@@ -12,8 +12,9 @@ public interface HOD_Operation {
 
 	public void RegisternewEngineer(Engineer ex)throws SomeThingWentWrongException;
 	public List<Engineer> getallEngineer()throws NoEngineerFoundException,SomeThingWentWrongException;
-	public void DeleteEmployee(String username)throws SomeThingWentWrongException;
+	public void DeleteEngineer(String username)throws SomeThingWentWrongException;
 	public List<Problems> getallProblems()throws NoProblemsFoundException,SomeThingWentWrongException;
+//	assignProblemToEngineer is not working
     public void assignProblemToEngineer(Problems px) throws NoProblemsFoundException,SomeThingWentWrongException;
     
 }

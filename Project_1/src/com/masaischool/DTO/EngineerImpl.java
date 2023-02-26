@@ -57,6 +57,11 @@ public class EngineerImpl implements Engineer {
 		EngineerImpl other = (EngineerImpl) obj;
 		return Objects.equals(username, other.username);
 	}
+
+	@Override
+	public String toString() {
+		return "Username = " + username + ", Password = " + password + ", Category = " + category;
+	}
 	
 	
 	

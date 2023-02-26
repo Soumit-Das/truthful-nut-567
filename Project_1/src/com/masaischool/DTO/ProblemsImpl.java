@@ -58,6 +58,12 @@ public class ProblemsImpl implements Problems {
 	public void setStatus(String status) {
 		Status = status;
 	}
+
+//	@Override
+//	public String toString() {
+//		return "ProblemsImpl [Employee_id=" + Employee_id + ", Engineer_name=" + Engineer_name + ", Problem_id="
+//				+ Problem_id + ", Problem=" + Problem + ", Status=" + Status + "]";
+//	}
 	
 	
 	
